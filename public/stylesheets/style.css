@@ -1,0 +1,109 @@
+nav {
+  grid-area: nav;
+  display:flex;
+  justify-content: center;
+  color: inherit;
+  flex-direction: column;
+  background-color: lightgray;
+  border-bottom: 1px solid gray;
+}
+
+nav ul {
+  display:flex;
+  flex:1;
+  padding:0;
+}
+
+nav li {
+  flex:1;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  list-style: none;
+  margin:0;
+}
+nav li:hover,
+nav li:active,
+nav li:focus {
+  font-weight: 700;
+  transition: 0.3s;
+  background-color: gray;
+  color: white;
+}
+
+body{
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  color: gray;
+  height: 100vh;
+  padding: 1rem;
+  margin: 0;
+  background-color: lightgray;
+}
+
+a{
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+button {
+  font-weight: 700;
+  color: white;
+  background-color: lightgray; 
+  border-color: gray;
+}
+
+button:hover,
+button:active,
+button:focus {
+  color:whitesmoke;
+  background-color: gray;
+  border-color: darkgray;
+  box-shadow: none;
+}
+
+textarea {
+  resize: none;
+}
+
+hr {
+  width: 90%;
+  border-width: 2px;
+  border-radius: .25rem;
+}
+
+footer {
+  grid-area: footer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  background-color: lightgray;
+  border-top: 1px solid black;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 3rem 1fr 3rem;
+  background: whitesmoke;
+  grid-template-areas:
+    'nav'
+    'main'
+    'footer';
+  padding: 1rem;
+}
+.template {
+  grid-area: main;
+  overflow-y: auto;
+  display:flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 1rem;
+  background-color: lightgray;  
+  scroll-behavior: auto;
+}
+
