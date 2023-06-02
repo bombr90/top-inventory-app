@@ -1,0 +1,101 @@
+extends layout
+
+block content
+  h1 #{title}
+
+  form(method='POST' action='')
+    form
+      span
+        label(for='name') Name:
+        input(
+          type='text' 
+          placeholder='Oatmeal, eggs, bacon...' 
+          name='name'
+          id='name' 
+          value=(undefined===item ? '' : item.name)
+          required='true'
+          min='3'
+          max='64'
+        )
+      span
+        label(for='description') Description:
+        textarea(
+          id='description'
+          placeholder='A brief description of the item...' 
+          name='description' 
+          value=(undefined===item ? '' : item.description)
+          required='true'
+          minlength='3'
+          rows='4'
+          spellcheck=true
+        )
+      span 
+        fieldset
+          legend='Category' 
+          for category in categoryList
+            span
+              input(
+                type='checkbox'
+                name='category'
+                id=category._id
+                value=category._id
+                checked=category.checked
+              )
+              label(for=category._id) #{category.name}
+      span
+        label(for='unitPrice') Unit Price:
+        input(
+          type='number' 
+          placeholder='Ex. 0.99' 
+          name='unitPrice' 
+          id='unitPrice'
+          value=(undefined===item ? '' : item.unitPrice)
+          required='true'
+          min='0.01'
+          step='0.01'
+        )
+      span
+        label(for='unit') Unit:
+        select(
+          name='unit' 
+          id='unit'
+          required='true'
+        )
+          option(value="piece" selected="selected") Piece
+          option(value="pack") Pack 
+          option(value="bag") Bag 
+          option(value="kg") kg 
+          option(value="g") g 
+          option(value="lb") lb 
+          option(value="oz") oz 
+          option(value="l") l 
+          option(value="ml") ml  
+      span 
+        label(for='unitCount') Units per item:
+        input(
+          type='number' 
+          placeholder='Ex. 1' 
+          name='unitCount' 
+          id='unitCount'
+          value=(undefined===item ? '' : item.unitCount)
+          required='true'
+          min='0'
+          step='1'
+        )
+      span 
+        label(for='stock') Quantity in stock:
+        input(
+          type='number' 
+          placeholder='Ex. 10' 
+          name='stock' 
+          id='stock'
+          value=(undefined===item ? '' : item.stock)
+          required='true'
+          min='1'
+          step='1'
+        )
+      button(type='submit') Submit
+  if errors
+   ul
+    for error in errors
+     li!= error.msg

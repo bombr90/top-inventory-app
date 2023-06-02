@@ -1,0 +1,22 @@
+extends layout
+
+block content
+
+  h1 Category: #{category.name}
+
+  div(style='margin-left:1rem')
+
+    h4 Items
+
+    dl
+      each item in itemsInCategory
+        dt
+          a(href=item.url) #{item.name}
+        dd #{item.description} - #{item.stock} in stock.
+      else
+        p This category has no items
+    hr 
+    p
+      a(href=category.url+'/update') Update Category
+    p
+      a(href=category.url+'/delete') Delete Category

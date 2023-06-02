@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1 Item: #{item.name}
+
+  p #[strong Description:] #{item.description}
+  p #[strong Categories:] 
+    ul
+      each category in item.category 
+        li 
+          a(href=category.url) #{category.name}
+  p #[strong Items in stock:] #{item.stock}
+  p #[strong Unit of measurement:] #{item.unit}
+  p #[strong Unit price:] $#{item.unitPrice.toFixed(3)}/#{item.unit}
+  p #[strong Units per item:] #{item.unitCount}#{item.unit} 
+  
+  hr
+  p
+    a(href=item.url+'/delete') Delete Item
+  p
+    a(href=item.url+'/update') Update Item
