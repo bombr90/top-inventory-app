@@ -2,7 +2,6 @@ extends layout
 
 block content
   h1 #{title}
-
   form(method='POST' action='')
     form
       span
@@ -22,13 +21,13 @@ block content
         textarea(
           id='description'
           placeholder='A brief description of the item...' 
-          name='description' 
-          value=(undefined===item ? '' : item.description)
+          name='description'
           required='true'
           minlength='3'
+          maxLength='128'
           rows='4'
           spellcheck=true
-        )
+        )=(undefined===item ? '' : item.description)
       span 
         fieldset
           legend='Category' 
@@ -61,15 +60,26 @@ block content
           id='unit'
           required='true'
         )
-          option(value="piece" selected="selected") Piece
-          option(value="pack") Pack 
-          option(value="bag") Bag 
-          option(value="kg") kg 
-          option(value="g") g 
-          option(value="lb") lb 
-          option(value="oz") oz 
-          option(value="l") l 
-          option(value="ml") ml  
+          if item
+            option(value="piece" selected=item.unit==='piece') Piece
+            option(value="pack" selected=item.unit==='pack') Pack 
+            option(value="bag" selected=item.unit==='bag') Bag 
+            option(value="kg" selected=item.unit==='kg') kg 
+            option(value="g" selected=item.unit==='g') g 
+            option(value="lb" selected=item.unit==='lb') lb 
+            option(value="oz" selected=item.unit==='oz') oz 
+            option(value="l" selected=item.unit==='l') l 
+            option(value="ml" selected=item.unit==='ml') ml
+          else 
+            option(value="piece" selected=true) Piece
+            option(value="pack") Pack 
+            option(value="bag") Bag 
+            option(value="kg") kg 
+            option(value="g") g 
+            option(value="lb") lb 
+            option(value="oz") oz 
+            option(value="l") l 
+            option(value="ml") ml
       span 
         label(for='unitCount') Units per item:
         input(

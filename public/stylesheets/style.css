@@ -3,14 +3,16 @@ nav {
   display:flex;
   justify-content: center;
   color: inherit;
-  flex-direction: column;
   background-color: lightgray;
   border-bottom: 1px solid gray;
 }
 
 nav ul {
   display:flex;
+  flex:1;
+  flex-wrap: wrap;
   padding:0;
+  margin:0;
 }
 
 nav li {
@@ -137,7 +139,7 @@ footer {
 .container {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 3rem 1fr 3rem;
+  grid-template-rows: fit-content(1rem) 1fr 3rem;
   background: whitesmoke;
   grid-template-areas:
     'nav'

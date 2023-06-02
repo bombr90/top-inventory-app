@@ -9,9 +9,10 @@ block content
       each category in item.category 
         li 
           a(href=category.url) #{category.name}
+  p #[strong Item Price:] $#{(item.unitPrice*item.unitCount).toFixed(2)}
   p #[strong Items in stock:] #{item.stock}
   p #[strong Unit of measurement:] #{item.unit}
-  p #[strong Unit price:] $#{item.unitPrice.toFixed(3)}/#{item.unit}
+  p #[strong Unit price:] $#{item.unitPrice.toFixed(2)}/#{item.unit}
   p #[strong Units per item:] #{item.unitCount}#{item.unit} 
   
   hr
