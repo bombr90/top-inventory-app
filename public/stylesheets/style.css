@@ -42,6 +42,7 @@ body{
   padding: 1rem;
   margin: 0;
   background-color: lightgray;
+  min-width: 480px;
 }
 
 a{
@@ -146,6 +147,7 @@ footer {
     'main'
     'footer';
   padding: 1rem;
+  border-radius: 8px;
 }
 .template {
   grid-area: main;
